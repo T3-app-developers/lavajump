@@ -1,0 +1,49 @@
+:root {
+  --sky: #6cbff8;
+  --hills: #a3d48f;
+  --tree: #355e3b;
+  --trunk: #8b5a2b;
+  --dirt: #3e2723;
+  --grass: #4caf50;
+  --player-head: #00ff7f;
+  --player-body: #1a237e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--sky);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+canvas {
+  border: 2px solid #1a237e;
+  background: var(--sky);
+}
+
+.hud {
+  width: 960px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 16px;
+}
+
+.hud__left,
+.hud__right {
+  display: flex;
+  gap: 16px;
+}
+
+.controls {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #f4f4f4;
+}

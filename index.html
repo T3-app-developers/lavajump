@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lavajump</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hud">
+    <div class="hud__left">
+      <span id="level">Level 1</span>
+      <span id="timer">00:00</span>
+    </div>
+    <div class="hud__right">
+      <span id="coins">Coins: 0</span>
+      <span id="wood">Wood: 0</span>
+      <span id="lives">Lives: 3</span>
+      <span id="enemy-lives">Enemy Lives: 3</span>
+    </div>
+  </div>
+  <canvas id="game" width="960" height="540"></canvas>
+  <div class="controls">
+    <p>Move: Arrow Keys or A/D | Jump: W/↑ | Shoot: X | Mine Tree: M | Build Platform: B</p>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
