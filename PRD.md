@@ -1,8 +1,18 @@
 # Lava Jump — Product Requirements Document (PRD)
-Version: 1.1 (Gameplay Expansion)  
+Version: 1.2 (Gameplay decisions)  
 Owner: Creative Director (Pete)  
 Delivery Lead: Executive Producer (EP) + Producer/PM  
 Status: Updated draft for MDT alignment
+
+## Change log (v1.2)
+Gameplay decisions locked for MVP:
+- Player laser is fixed horizontal only (fires in facing direction).
+- Enemy behavior split into Sentry Shooter (majority) and Patroller Shooter (minority).
+- Boss moveset locked to 3 attacks: stomp shockwave, charge, bite lunge.
+- Mining uses a dedicated Interact input (separate from Shoot).
+- Wall creation is player-placed with placement constraints.
+- Coins are primarily score/collection in MVP; unlocks are post-MVP.
+- Add eruption timer UI element for fairness/readability.
 
 ## Change log (v1.1)
 Integrated Creative Director gameplay requirements:
@@ -94,7 +104,7 @@ Default: PC (Steam) first, keyboard + controller support.
 
 ---
 
-## 6) Core gameplay requirements (v1.1)
+## 6) Core gameplay requirements (v1.2)
 
 ### 6.1 Primary loop
 Traverse platforms over lava → collect coins → fight enemy shooters → survive volcano eruptions → defeat T-Rex boss → finish level.
@@ -111,28 +121,46 @@ Traverse platforms over lava → collect coins → fight enemy shooters → surv
 - Move: left/right
 - Jump
 - Shoot: **X**
+- Interact: dedicated input for mining
 - Optional later (not required for MVP unless needed): aim direction, dash, reload, etc.
 
 ### 6.4 Enemies (attacking men)
 - Visual: black head, orange body, laser gun
 - Lives: **3 lives**
-- Behavior: patrol or guard + periodically shoot toward player
-- Shots:
-  - Must be telegraphed (tiny wind-up pose/flash) to preserve fairness
-  - Projectile speed and cadence tuned so platforming remains primary (combat is “light but meaningful”)
+- Behavior mix (locked for MVP):
+  - Type A: **Sentry Shooter** (majority)
+    - Stands still or paces in a tiny range.
+    - Fires horizontally at the player when in line-of-sight and within range.
+    - Telegraph: brief charge flash or gun glow.
+  - Type B: **Patroller Shooter** (minority, later levels)
+    - Walks back and forth on a short patrol route.
+    - Same firing rules as Type A, but only shoots when stopped or at patrol endpoints.
+- Fairness rules:
+  - Enemy fire cadence is slow enough that platforming remains primary.
+  - Projectiles are high-contrast and never blend into background hills.
+  - No off-screen snipes: enemies don’t fire unless the player is within camera bounds (or a tiny margin).
 
 ### 6.5 Boss (every level)
 - Boss type: T-Rex dinosaur
 - Lives: **7 lives**
 - Boss arena: must exist in each level (can vary placement)
-- Boss attacks (MVP set; pick 2–3 max to keep scope sane):
-  - Charge/step stomp (telegraphed)
-  - Bite lunge (telegraphed)
-  - Roar knockback (optional)
-  - Fireball/spit only if it doesn’t clutter the minimalist style
+- Boss attacks (locked for MVP):
+  - **Stomp Shockwave**
+    - Telegraph: raises foot + rumble cue.
+    - Effect: ground shockwave travels along the floor (jump to avoid).
+    - Visual: a single expanding line/arc.
+  - **Charge**
+    - Telegraph: head low + short roar.
+    - Effect: runs horizontally across the arena; player must jump/position.
+    - Optional: hits a wall and briefly stuns itself (damage window).
+  - **Bite Lunge**
+    - Telegraph: short wind-up, head pulls back.
+    - Effect: short forward burst; punishes hugging too close.
 - Boss damage rules:
   - Boss takes damage from player laser
   - Boss invulnerability frames after hit (brief) to prevent instant melts
+- Readability rule:
+  - During boss, reduce or remove regular enemy shooters unless playtests show it remains fair.
 
 ### 6.6 Volcano hazard (every level)
 - Volcano geometry: **4 blocks wide** with a **2-block pit** in the middle (crater)
@@ -161,12 +189,17 @@ Important implementation detail:
 - Coins are used for:
   - Reward loop (score/progression)
   - Crafting outcome ties (see Trees/Walls)
+  - End-of-level results (coins collected, best run stats)
+- Post-MVP (explicitly later):
+  - Cosmetic unlocks (player skins, laser color variants, label styles)
+  - Extra challenge levels or “hard routes”
+  - Optional assists (extra life, eruption warning buff)
 
 ### 6.9 Trees → mining → crafting wooden wall
 - Trees appear in levels (Layer 2/3 boundary visually)
 - Mining interaction:
   - When mined, a tree yields **3 coins**
-  - Mining action input: (choose one; default: hold Shoot on tree OR separate “Interact” if needed for UX)
+  - Mining action input: **dedicated Interact** near a tree (hold or repeated taps; choose in slice)
 - Crafting:
   - If player mines **2 trees**, they can create a **wooden wall**
   - Wooden wall properties:
@@ -174,10 +207,10 @@ Important implementation detail:
     - **3 coins on top** (pickup placements)
     - Standing on wall makes player safe from enemies
 - Placement rules (MVP):
-  - Simple placement: wall spawns at a predefined location after mining two trees, OR
-  - Player-placed: allow placement only on “valid sockets” (to avoid griefing and level-breaking)
-
-Given the scope, “predefined location” is recommended for MVP.
+  - Player-placed wall (not predefined).
+  - Placement is grid-aligned to blocks.
+  - Only place on valid surfaces (solid ground/platforms), not mid-air.
+  - Optional “placement sockets” in level markup if we want tighter control.
 
 ---
 
@@ -213,12 +246,13 @@ This preserves your requirement while improving pacing and variety.
 
 ---
 
-## 8) UI/UX requirements (v1.1)
+## 8) UI/UX requirements (v1.2)
 - Floating label “P1” above player (white sans-serif)
 - HUD:
   - Player lives (3)
   - Coins count
   - Boss lives (7) displayed during boss encounter
+  - Eruption timer indicator (subtle icon that pulses as it nears 20s)
 - Pause menu:
   - Resume
   - Restart level
@@ -240,7 +274,7 @@ This preserves your requirement while improving pacing and variety.
 
 ---
 
-## 10) Technical requirements (v1.1)
+## 10) Technical requirements (v1.2)
 
 ### Systems to implement
 - Player controller tuned for precision
@@ -280,12 +314,12 @@ When integrating these new mechanics, the MDT will make the following “pro pip
 1) Define exactly how “22 blocks” maps to camera framing and movement speed so levels don’t feel cramped or empty.
 2) Decide whether enemies shoot straight lines only, or can aim (aiming increases complexity and unfairness risk).
 3) Decide the “mining” input and wall placement rule (predefined location recommended for MVP).
-4) Clarify the eruption hazard: is it purely a timing penalty mid-jump (as described), or does it also create projectiles/knockback?
+4) Clarify the eruption hazard: keep it as a timing penalty mid-jump (no extra projectiles/knockback for MVP).
 5) Ensure readability: coin sparkle, laser bolts, eruption effects must not clutter minimalist style.
 
 ---
 
-## 12) Updated milestone plan and tasks (v1.1)
+## 12) Updated milestone plan and tasks (v1.2)
 
 ### Milestone 0: Sprint 0 — Lock gameplay specs (1 week)
 Key additions:
@@ -345,9 +379,6 @@ Mitigation: safe zones are positional advantages but not permanent; enemy placem
 ---
 
 ## 14) Open questions (must resolve next)
-1) Laser aiming: fixed horizontal only, or aim up/down? (Fixed is simpler and clearer.)
-2) Enemy behavior: stationary shooters vs patrollers vs mixed?
-3) Boss attacks: choose 2–3 for MVP (which ones?)
-4) Mining interaction: hold shoot vs dedicated interact button?
-5) Wall creation: player-placed vs spawns at predefined location?
-6) How do coins matter beyond score? (Pure score is fine for MVP, but we can add unlocks later.)
+1) Interact input feel: hold vs repeated taps for mining?
+2) Boss charge stun window: duration and damage window tuning?
+3) Placement control: do we need sockets in all levels or only in complex segments?
