@@ -16,7 +16,8 @@
 
 body {
   margin: 0;
-  background: var(--sky);
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #83d1ff 0%, #5db9ff 40%, #4fa3e6 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,16 +25,20 @@ body {
 }
 
 canvas {
-  border: 2px solid #1a237e;
+  border: 3px solid rgba(26, 35, 126, 0.8);
+  border-radius: 12px;
   background: var(--sky);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 .hud {
   width: 960px;
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  font-size: 16px;
+  padding: 16px 0 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .hud__left,
@@ -42,8 +47,22 @@ canvas {
   gap: 16px;
 }
 
+.hud__left span,
+.hud__right span {
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+.hud__alert {
+  background: rgba(255, 87, 34, 0.7);
+  color: #fff3e0;
+}
+
 .controls {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 14px;
   color: #f4f4f4;
+  opacity: 0.9;
 }
