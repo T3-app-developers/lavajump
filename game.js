@@ -49,123 +49,199 @@ const shockwaves = [];
 
 const levelData = [
   {
-    blocks: 22,
-    pits: [
-      { start: 9, end: 11 },
-      { start: 16, end: 18 },
-    ],
+    width: 22,
+    height: 28,
     platforms: [
-      { x: 6, y: 290, w: 3 },
-      { x: 12.5, y: 260, w: 2 },
+      { x: 2, y: 3, w: 4 },
+      { x: 10, y: 5, w: 3 },
+      { x: 5, y: 8, w: 4 },
+      { x: 13.5, y: 10, w: 4 },
+      { x: 3, y: 13, w: 3.5 },
+      { x: 9, y: 16, w: 3 },
+      { x: 15, y: 19, w: 3.5 },
+      { x: 6.5, y: 22, w: 4 },
+      { x: 12, y: 25, w: 3 },
     ],
     enemies: [
-      { x: 8, type: "sentry" },
-      { x: 18.5, type: "patrol", range: 3 },
+      { x: 6, y: 8, type: "sentry" },
+      { x: 14, y: 13, type: "patrol", range: 2.5 },
     ],
-    trees: [3, 10.5, 19],
-    coins: [5, 7.5, 13, 20.5],
-    volcano: { x: 12 },
+    trees: [
+      { x: 3.5, y: 3 },
+      { x: 11.5, y: 10 },
+      { x: 7, y: 22 },
+    ],
+    coins: [
+      { x: 4, y: 4 },
+      { x: 12.5, y: 6 },
+      { x: 8, y: 14 },
+      { x: 15.5, y: 18 },
+      { x: 9, y: 24 },
+    ],
+    volcano: { x: 10.5, y: 15 },
   },
   {
-    blocks: 30,
-    pits: [
-      { start: 6, end: 8 },
-      { start: 12, end: 15 },
-      { start: 20, end: 22 },
-    ],
+    width: 22,
+    height: 34,
     platforms: [
-      { x: 4, y: 300, w: 3 },
-      { x: 10, y: 260, w: 2.5 },
-      { x: 17, y: 280, w: 3 },
+      { x: 2, y: 3, w: 3.5 },
+      { x: 8, y: 6, w: 4 },
+      { x: 14.5, y: 8, w: 3 },
+      { x: 4, y: 11, w: 4 },
+      { x: 11, y: 14, w: 3.5 },
+      { x: 6, y: 17, w: 4 },
+      { x: 13, y: 20, w: 4 },
+      { x: 4.5, y: 23, w: 3 },
+      { x: 10, y: 26, w: 4 },
+      { x: 15, y: 29, w: 3 },
+      { x: 7, y: 32, w: 4 },
     ],
     enemies: [
-      { x: 7.5, type: "sentry" },
-      { x: 15.5, type: "sentry" },
-      { x: 24, type: "patrol", range: 4 },
+      { x: 9, y: 6, type: "sentry" },
+      { x: 13, y: 17, type: "sentry" },
+      { x: 5, y: 23, type: "patrol", range: 2 },
     ],
-    trees: [2.5, 9, 17.5, 26],
-    coins: [4, 11, 14.5, 23, 28],
-    volcano: { x: 15 },
+    trees: [
+      { x: 3.5, y: 3 },
+      { x: 12, y: 14 },
+      { x: 6.5, y: 23 },
+      { x: 9, y: 32 },
+    ],
+    coins: [
+      { x: 4, y: 4 },
+      { x: 15, y: 9 },
+      { x: 6.5, y: 18 },
+      { x: 12.5, y: 25 },
+      { x: 8, y: 33 },
+    ],
+    volcano: { x: 12.5, y: 19 },
   },
   {
-    blocks: 40,
-    pits: [
-      { start: 8, end: 11 },
-      { start: 14, end: 17 },
-      { start: 22, end: 25 },
-      { start: 30, end: 33 },
-    ],
+    width: 22,
+    height: 40,
     platforms: [
-      { x: 6, y: 300, w: 3 },
-      { x: 12, y: 260, w: 3 },
-      { x: 20, y: 250, w: 2 },
-      { x: 28, y: 280, w: 4 },
+      { x: 3, y: 4, w: 4 },
+      { x: 11, y: 7, w: 3.5 },
+      { x: 6, y: 10, w: 4 },
+      { x: 14.5, y: 13, w: 3 },
+      { x: 4, y: 16, w: 3.5 },
+      { x: 9, y: 19, w: 4 },
+      { x: 15, y: 22, w: 3 },
+      { x: 5.5, y: 26, w: 4 },
+      { x: 12, y: 29, w: 4 },
+      { x: 7, y: 33, w: 3.5 },
+      { x: 14, y: 36, w: 3.5 },
+      { x: 4.5, y: 38, w: 4 },
     ],
     enemies: [
-      { x: 9.5, type: "sentry" },
-      { x: 16, type: "sentry" },
-      { x: 24.5, type: "patrol", range: 3 },
-      { x: 34, type: "sentry" },
+      { x: 12, y: 7, type: "sentry" },
+      { x: 6, y: 16, type: "patrol", range: 2.5 },
+      { x: 14, y: 26, type: "sentry" },
+      { x: 7, y: 33, type: "patrol", range: 2.5 },
     ],
-    trees: [3, 10.5, 18, 26, 35],
-    coins: [5.5, 13, 19.5, 27.5, 37],
-    volcano: { x: 20 },
+    trees: [
+      { x: 4, y: 4 },
+      { x: 9.5, y: 19 },
+      { x: 6, y: 26 },
+      { x: 14.5, y: 36 },
+    ],
+    coins: [
+      { x: 5, y: 5 },
+      { x: 14.5, y: 13 },
+      { x: 10, y: 22 },
+      { x: 6.5, y: 30 },
+      { x: 13, y: 38 },
+    ],
+    volcano: { x: 9.5, y: 24 },
   },
   {
-    blocks: 50,
-    pits: [
-      { start: 10, end: 13 },
-      { start: 18, end: 21 },
-      { start: 26, end: 29 },
-      { start: 34, end: 37 },
-      { start: 42, end: 45 },
-    ],
+    width: 22,
+    height: 46,
     platforms: [
-      { x: 7, y: 300, w: 4 },
-      { x: 16, y: 250, w: 3 },
-      { x: 24, y: 290, w: 4 },
-      { x: 32, y: 260, w: 3 },
-      { x: 40, y: 280, w: 4 },
+      { x: 2.5, y: 4, w: 4 },
+      { x: 10, y: 7, w: 4 },
+      { x: 15, y: 10, w: 3 },
+      { x: 6, y: 13, w: 4 },
+      { x: 12.5, y: 16, w: 3.5 },
+      { x: 4, y: 19, w: 3.5 },
+      { x: 9, y: 22, w: 4 },
+      { x: 14.5, y: 25, w: 3 },
+      { x: 5.5, y: 29, w: 4 },
+      { x: 12, y: 32, w: 4 },
+      { x: 6.5, y: 36, w: 3.5 },
+      { x: 14, y: 39, w: 3.5 },
+      { x: 4.5, y: 42, w: 4 },
+      { x: 10.5, y: 45, w: 4 },
     ],
     enemies: [
-      { x: 12, type: "sentry" },
-      { x: 21, type: "patrol", range: 4 },
-      { x: 29.5, type: "sentry" },
-      { x: 38, type: "sentry" },
-      { x: 46, type: "patrol", range: 3 },
+      { x: 11, y: 7, type: "sentry" },
+      { x: 4.5, y: 19, type: "patrol", range: 2.5 },
+      { x: 14.5, y: 25, type: "sentry" },
+      { x: 8, y: 36, type: "patrol", range: 2.5 },
+      { x: 13, y: 45, type: "sentry" },
     ],
-    trees: [4, 13.5, 22.5, 31, 40.5],
-    coins: [6.5, 17, 25.5, 33.5, 43, 48],
-    volcano: { x: 25 },
+    trees: [
+      { x: 3.5, y: 4 },
+      { x: 13, y: 16 },
+      { x: 7, y: 29 },
+      { x: 11, y: 45 },
+    ],
+    coins: [
+      { x: 5, y: 5 },
+      { x: 15.5, y: 11 },
+      { x: 10.5, y: 22 },
+      { x: 6, y: 33 },
+      { x: 12, y: 43 },
+      { x: 8.5, y: 46 },
+    ],
+    volcano: { x: 11, y: 28 },
   },
   {
-    blocks: 60,
-    pits: [
-      { start: 12, end: 15 },
-      { start: 20, end: 24 },
-      { start: 28, end: 31 },
-      { start: 36, end: 39 },
-      { start: 44, end: 47 },
-      { start: 52, end: 55 },
-    ],
+    width: 22,
+    height: 54,
     platforms: [
-      { x: 8, y: 300, w: 4 },
-      { x: 16.5, y: 260, w: 3 },
-      { x: 26, y: 280, w: 3 },
-      { x: 34, y: 240, w: 4 },
-      { x: 42, y: 300, w: 4 },
-      { x: 50, y: 260, w: 4 },
+      { x: 2.5, y: 4, w: 4 },
+      { x: 9.5, y: 7, w: 4 },
+      { x: 15.5, y: 10, w: 3 },
+      { x: 5.5, y: 13, w: 4 },
+      { x: 12, y: 16, w: 3.5 },
+      { x: 4, y: 19, w: 3.5 },
+      { x: 9, y: 22, w: 4 },
+      { x: 14.5, y: 25, w: 3 },
+      { x: 5.5, y: 28, w: 4 },
+      { x: 12, y: 31, w: 4 },
+      { x: 6.5, y: 35, w: 3.5 },
+      { x: 14, y: 38, w: 3.5 },
+      { x: 4.5, y: 42, w: 4 },
+      { x: 10.5, y: 45, w: 4 },
+      { x: 15.5, y: 48, w: 3 },
+      { x: 7, y: 51, w: 4 },
     ],
     enemies: [
-      { x: 13.5, type: "sentry" },
-      { x: 23.5, type: "sentry" },
-      { x: 31.5, type: "patrol", range: 4 },
-      { x: 41, type: "sentry" },
-      { x: 53, type: "patrol", range: 4 },
+      { x: 10.5, y: 7, type: "sentry" },
+      { x: 4.5, y: 19, type: "patrol", range: 2.5 },
+      { x: 14.5, y: 25, type: "sentry" },
+      { x: 8, y: 35, type: "patrol", range: 2.5 },
+      { x: 12, y: 45, type: "sentry" },
+      { x: 6.5, y: 51, type: "patrol", range: 2 },
     ],
-    trees: [5, 14.5, 24.5, 33.5, 43.5, 55],
-    coins: [7, 18.5, 27.5, 36, 46.5, 58],
-    volcano: { x: 30 },
+    trees: [
+      { x: 3.5, y: 4 },
+      { x: 12.5, y: 16 },
+      { x: 6.5, y: 28 },
+      { x: 10.5, y: 45 },
+      { x: 7.5, y: 51 },
+    ],
+    coins: [
+      { x: 5, y: 5 },
+      { x: 15.5, y: 11 },
+      { x: 10.5, y: 22 },
+      { x: 6, y: 33 },
+      { x: 12, y: 43 },
+      { x: 14.5, y: 49 },
+      { x: 8, y: 53 },
+    ],
+    volcano: { x: 11, y: 30 },
   },
 ];
 
@@ -183,10 +259,10 @@ const state = {
   volcanoPlatforms: [],
   boss: null,
   levelWidth: 2000,
+  levelHeight: 0,
+  levelTop: 0,
   minedTrees: 0,
   wallsBuilt: 0,
-  jumpStart: null,
-  jumpOverPit: false,
 };
 
 function toPixels(blocks) {
@@ -195,17 +271,22 @@ function toPixels(blocks) {
 
 function resetLevel(index) {
   const level = levelData[index];
-  state.levelWidth = toPixels(level.blocks);
+  state.levelWidth = toPixels(level.width);
+  state.levelHeight = toPixels(level.height);
+  state.levelTop = groundY - state.levelHeight;
   state.platforms = level.platforms.map((platform) => ({
     x: toPixels(platform.x),
-    y: platform.y,
+    y: groundY - toPixels(platform.y),
     w: toPixels(platform.w),
     h: 14,
   }));
-  state.volcanoPlatforms = createVolcanoPlatforms(toPixels(level.volcano.x));
+  state.volcanoPlatforms = createVolcanoPlatforms(
+    toPixels(level.volcano.x),
+    groundY - toPixels(level.volcano.y)
+  );
   state.enemies = level.enemies.map((enemy) => ({
     x: toPixels(enemy.x),
-    y: groundY - 52,
+    y: groundY - toPixels(enemy.y) - 52,
     type: enemy.type,
     range: enemy.range ? toPixels(enemy.range) : 0,
     direction: enemy.type === "patrol" ? 1 : 0,
@@ -216,12 +297,13 @@ function resetLevel(index) {
     telegraph: 0,
   }));
   state.trees = level.trees.map((tree) => ({
-    x: toPixels(tree),
+    x: toPixels(tree.x),
+    y: groundY - toPixels(tree.y),
     mined: false,
   }));
   state.boss = {
     x: state.levelWidth - toPixels(4),
-    y: groundY - 90,
+    y: state.levelTop + 70,
     lives: 7,
     alive: true,
     state: "idle",
@@ -230,10 +312,10 @@ function resetLevel(index) {
     vx: 0,
   };
   coins.length = 0;
-  level.coins.forEach((coinX) => {
+  level.coins.forEach((coin) => {
     coins.push({
-      x: toPixels(coinX),
-      y: groundY - 120,
+      x: toPixels(coin.x),
+      y: groundY - toPixels(coin.y),
       collected: false,
       sparkle: Math.random() * Math.PI * 2,
     });
@@ -252,8 +334,6 @@ function resetLevel(index) {
   player.onWall = false;
   state.minedTrees = 0;
   state.wallsBuilt = 0;
-  state.jumpStart = null;
-  state.jumpOverPit = false;
   volcanoState.lastEruption = totalTime;
   volcanoState.erupting = false;
   updateHud();
@@ -280,10 +360,6 @@ function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-}
-
-function isOverPit(x, pits) {
-  return pits.some((pit) => x >= pit.start && x <= pit.end);
 }
 
 function getSurfaceYAt(x) {
@@ -334,19 +410,6 @@ function updatePlayer(delta) {
   if (jump && player.onGround) {
     player.vy = -640;
     player.onGround = false;
-    const pits = levelData[currentLevelIndex].pits.map((pit) => ({
-      start: toPixels(pit.start),
-      end: toPixels(pit.end),
-    }));
-    const nearPit = pits.some(
-      (pit) =>
-        Math.abs(player.x - pit.start) < 50 ||
-        Math.abs(player.x + playerSize.w - pit.end) < 50
-    );
-    if (nearPit) {
-      state.jumpStart = { x: player.x, y: player.y };
-      state.jumpOverPit = true;
-    }
   }
 
   player.vy += gravity * delta;
@@ -354,24 +417,17 @@ function updatePlayer(delta) {
   player.y += player.vy * delta;
 
   player.x = clamp(player.x, 20, state.levelWidth - 60);
-
-  const pits = levelData[currentLevelIndex].pits.map((pit) => ({
-    start: toPixels(pit.start),
-    end: toPixels(pit.end),
-  }));
   const playerFeet = player.y + playerSize.h;
-  const overPit = isOverPit(player.x + playerSize.w / 2, pits);
 
   player.onGround = false;
   player.onPlatform = false;
   player.onVolcano = false;
   player.onWall = false;
 
-  if (!overPit && playerFeet >= groundY) {
+  if (playerFeet >= groundY) {
     player.y = groundY - playerSize.h;
     player.vy = 0;
     player.onGround = true;
-    state.jumpOverPit = false;
   }
 
   state.platforms.forEach((platform) => {
@@ -380,7 +436,6 @@ function updatePlayer(delta) {
       player.vy = 0;
       player.onGround = true;
       player.onPlatform = true;
-      state.jumpOverPit = false;
     }
   });
 
@@ -390,7 +445,6 @@ function updatePlayer(delta) {
       player.vy = 0;
       player.onGround = true;
       player.onVolcano = true;
-      state.jumpOverPit = false;
     }
   });
 
@@ -400,11 +454,10 @@ function updatePlayer(delta) {
       player.vy = 0;
       player.onGround = true;
       player.onWall = true;
-      state.jumpOverPit = false;
     }
   });
 
-  if (overPit && playerFeet >= groundY + 40) {
+  if (playerFeet >= groundY + 120) {
     loseLife();
   }
 }
@@ -439,7 +492,10 @@ function handleInputActions() {
 
   if (keys.has("m")) {
     const tree = state.trees.find(
-      (item) => !item.mined && Math.abs(item.x - player.x) < 60
+      (item) =>
+        !item.mined &&
+        Math.abs(item.x - player.x) < 60 &&
+        Math.abs(item.y - player.y) < 80
     );
     if (tree && (!tree.lastMined || totalTime - tree.lastMined > 0.6)) {
       tree.mined = true;
@@ -450,7 +506,7 @@ function handleInputActions() {
       for (let i = 0; i < 3; i += 1) {
         coins.push({
           x: tree.x + i * 16,
-          y: groundY - 140 - i * 6,
+          y: tree.y - 80 - i * 6,
           collected: false,
           sparkle: Math.random() * Math.PI * 2,
         });
@@ -553,7 +609,7 @@ function updateBullets(delta) {
   shockwaves.forEach((wave) => {
     wave.x += wave.vx * delta;
     if (!wave.hit && Math.abs(wave.x - (player.x + playerSize.w / 2)) < 24) {
-      if (player.y + playerSize.h >= groundY - 16) {
+      if (state.boss && player.y + playerSize.h >= state.boss.y + 60) {
         wave.hit = true;
         loseLife();
       }
@@ -604,7 +660,8 @@ function updateEnemies(delta) {
       }
     }
 
-    const inRange = Math.abs(enemy.x - player.x) < 320;
+    const inRange =
+      Math.abs(enemy.x - player.x) < 320 && Math.abs(enemy.y - player.y) < 220;
     if (inRange && totalTime - enemy.lastShot > 1.6) {
       enemy.telegraph = 0.2;
       enemy.lastShot = totalTime;
@@ -630,8 +687,7 @@ function updateBoss(delta) {
   const boss = state.boss;
   boss.invulnerable = Math.max(0, boss.invulnerable - delta);
 
-  const arenaStart = state.levelWidth - toPixels(7);
-  if (player.x < arenaStart) {
+  if (player.y > state.levelTop + 160) {
     return;
   }
 
@@ -646,7 +702,7 @@ function updateBoss(delta) {
   if (boss.state === "shockwave" && boss.timer > 0.6) {
     shockwaves.push({
       x: boss.x + 40,
-      y: groundY - 12,
+      y: boss.y + 76,
       vx: player.x < boss.x ? -420 : 420,
       hit: false,
     });
@@ -674,7 +730,8 @@ function updateBoss(delta) {
       if (
         player.x + playerSize.w > boss.x &&
         player.x < boss.x + 100 &&
-        player.y + playerSize.h > boss.y
+        player.y + playerSize.h > boss.y &&
+        player.y < boss.y + 90
       ) {
         loseLife();
       }
@@ -685,6 +742,7 @@ function updateBoss(delta) {
     }
   }
 
+  const arenaStart = state.levelWidth - toPixels(7);
   boss.x = clamp(boss.x, arenaStart, state.levelWidth - 140);
 }
 
@@ -698,15 +756,15 @@ function updateVolcano(delta) {
   }
 
   if (volcanoState.erupting) {
-    if (state.jumpOverPit && !player.onGround) {
-      if (state.jumpStart) {
-        loseLife();
-        player.x = state.jumpStart.x;
-        player.y = state.jumpStart.y;
-        player.vx = 0;
-        player.vy = 0;
-      }
-      state.jumpOverPit = false;
+    const volcano = levelData[currentLevelIndex].volcano;
+    const volcanoX = toPixels(volcano.x);
+    const volcanoY = groundY - toPixels(volcano.y);
+    const closeToVent =
+      Math.abs(player.x + playerSize.w / 2 - volcanoX) < 60 &&
+      player.y < volcanoY + 40 &&
+      player.y + playerSize.h > volcanoY - 90;
+    if (closeToVent && !(player.onVolcano || player.onWall)) {
+      loseLife();
     }
   }
 }
@@ -731,7 +789,8 @@ function updateCoins(delta) {
 }
 
 function updateLevelCompletion() {
-  if (player.x >= state.levelWidth - 140) {
+  const bossDefeated = !state.boss || !state.boss.alive;
+  if (player.y <= state.levelTop + 40 && bossDefeated) {
     currentLevelIndex += 1;
     if (currentLevelIndex >= levelData.length) {
       gameState = "complete";
@@ -742,7 +801,7 @@ function updateLevelCompletion() {
   }
 }
 
-function createVolcanoPlatforms(volcanoX) {
+function createVolcanoPlatforms(volcanoX, volcanoY) {
   const platforms = [];
   const width = toPixels(4);
   const craterWidth = toPixels(2);
@@ -753,13 +812,13 @@ function createVolcanoPlatforms(volcanoX) {
   stepHeights.forEach((height, index) => {
     platforms.push({
       x: leftX + index * 18,
-      y: groundY - height,
+      y: volcanoY - height,
       w: width / 2 - index * 18,
       h: 14,
     });
     platforms.push({
       x: rightX - width / 2,
-      y: groundY - height,
+      y: volcanoY - height,
       w: width / 2 - index * 18,
       h: 14,
     });
@@ -767,7 +826,7 @@ function createVolcanoPlatforms(volcanoX) {
 
   platforms.push({
     x: volcanoX - craterWidth / 2,
-    y: groundY - 170,
+    y: volcanoY - 170,
     w: craterWidth,
     h: 12,
   });
@@ -775,7 +834,7 @@ function createVolcanoPlatforms(volcanoX) {
   return platforms;
 }
 
-function drawBackground(cameraX) {
+function drawBackground(cameraY) {
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
   gradient.addColorStop(0, "#5db9ff");
   gradient.addColorStop(0.6, "#89d6ff");
@@ -785,21 +844,21 @@ function drawBackground(cameraX) {
 
   ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
   for (let i = 0; i < 4; i += 1) {
-    const offset = (i * 240 - cameraX * 0.15) % (canvas.width + 200);
+    const offset = (i * 240 + cameraY * 0.12) % (canvas.width + 200);
     ctx.beginPath();
-    ctx.ellipse(offset, 90 + i * 12, 80, 20, 0, 0, Math.PI * 2);
-    ctx.ellipse(offset + 60, 90 + i * 12, 60, 16, 0, 0, Math.PI * 2);
+    ctx.ellipse(offset, 90 + i * 18, 80, 20, 0, 0, Math.PI * 2);
+    ctx.ellipse(offset + 60, 90 + i * 18, 60, 16, 0, 0, Math.PI * 2);
     ctx.fill();
   }
 
   ctx.fillStyle = "#9bd18c";
   ctx.beginPath();
-  ctx.moveTo(-cameraX * 0.25, 360);
+  ctx.moveTo(0, 360);
   for (let x = -100; x <= canvas.width + 200; x += 120) {
     ctx.quadraticCurveTo(
-      x + 60 - cameraX * 0.25,
+      x + 60,
       310 + (x % 240 === 0 ? 40 : -20),
-      x + 120 - cameraX * 0.25,
+      x + 120,
       360
     );
   }
@@ -810,12 +869,12 @@ function drawBackground(cameraX) {
 
   ctx.fillStyle = "#6bb56c";
   ctx.beginPath();
-  ctx.moveTo(-cameraX * 0.4, 380);
+  ctx.moveTo(0, 380);
   for (let x = -100; x <= canvas.width + 200; x += 140) {
     ctx.quadraticCurveTo(
-      x + 70 - cameraX * 0.4,
+      x + 70,
       340 + (x % 280 === 0 ? 30 : -24),
-      x + 140 - cameraX * 0.4,
+      x + 140,
       380
     );
   }
@@ -825,35 +884,28 @@ function drawBackground(cameraX) {
   ctx.fill();
 }
 
-function drawGround(cameraX) {
+function drawGround() {
   ctx.fillStyle = "#3e2723";
-  ctx.fillRect(-cameraX, groundY, state.levelWidth, canvas.height - groundY);
+  ctx.fillRect(0, groundY, state.levelWidth, state.levelHeight + canvas.height);
 
-  const pits = levelData[currentLevelIndex].pits.map((pit) => ({
-    start: toPixels(pit.start),
-    end: toPixels(pit.end),
-  }));
+  ctx.fillStyle = "#f44336";
+  ctx.fillRect(0, groundY + 10, state.levelWidth, state.levelHeight + canvas.height);
 
-  pits.forEach((pit) => {
-    ctx.fillStyle = "#f44336";
-    ctx.fillRect(pit.start - cameraX, groundY, pit.end - pit.start, canvas.height - groundY);
-
-    const waveGradient = ctx.createLinearGradient(0, groundY, 0, canvas.height);
-    waveGradient.addColorStop(0, "#ff7043");
-    waveGradient.addColorStop(1, "#ffab40");
-    ctx.fillStyle = waveGradient;
-    for (let x = pit.start - cameraX; x < pit.end - cameraX; x += 20) {
-      ctx.beginPath();
-      ctx.ellipse(x, groundY + 12, 16, 6, 0, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  });
+  const waveGradient = ctx.createLinearGradient(0, groundY + 10, 0, groundY + 140);
+  waveGradient.addColorStop(0, "#ff7043");
+  waveGradient.addColorStop(1, "#ffab40");
+  ctx.fillStyle = waveGradient;
+  for (let x = 0; x < state.levelWidth; x += 24) {
+    ctx.beginPath();
+    ctx.ellipse(x, groundY + 32, 16, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
 
   ctx.fillStyle = "#4caf50";
-  ctx.fillRect(-cameraX, groundY - grassHeight, state.levelWidth, grassHeight);
+  ctx.fillRect(0, groundY - grassHeight, state.levelWidth, grassHeight);
 
   ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
-  for (let x = -cameraX; x < state.levelWidth - cameraX; x += 14) {
+  for (let x = 0; x < state.levelWidth; x += 14) {
     ctx.beginPath();
     ctx.moveTo(x, groundY - grassHeight + 2);
     ctx.lineTo(x + 4, groundY - 4);
@@ -861,90 +913,91 @@ function drawGround(cameraX) {
   }
 }
 
-function drawPlatforms(cameraX) {
+function drawPlatforms() {
   ctx.fillStyle = "rgba(255, 255, 255, 0.12)";
   state.platforms.forEach((platform) => {
-    ctx.fillRect(platform.x - cameraX, platform.y, platform.w, platform.h);
+    ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
     ctx.strokeStyle = "rgba(0,0,0,0.3)";
-    ctx.strokeRect(platform.x - cameraX, platform.y, platform.w, platform.h);
+    ctx.strokeRect(platform.x, platform.y, platform.w, platform.h);
   });
 }
 
-function drawTrees(cameraX) {
+function drawTrees() {
   state.trees.forEach((tree, index) => {
     if (tree.mined) {
       return;
     }
     ctx.fillStyle = "#8b5a2b";
-    ctx.fillRect(tree.x - cameraX, groundY - 110, 16, 80);
+    ctx.fillRect(tree.x, tree.y - 80, 16, 80);
     ctx.fillStyle = "#355e3b";
     ctx.beginPath();
     if (index % 2 === 0) {
-      ctx.arc(tree.x + 8 - cameraX, groundY - 120, 28, 0, Math.PI * 2);
+      ctx.arc(tree.x + 8, tree.y - 90, 28, 0, Math.PI * 2);
     } else {
-      ctx.arc(tree.x - cameraX, groundY - 120, 24, 0, Math.PI * 2);
-      ctx.arc(tree.x + 22 - cameraX, groundY - 130, 24, 0, Math.PI * 2);
+      ctx.arc(tree.x, tree.y - 90, 24, 0, Math.PI * 2);
+      ctx.arc(tree.x + 22, tree.y - 100, 24, 0, Math.PI * 2);
     }
     ctx.fill();
   });
 }
 
-function drawVolcano(cameraX) {
+function drawVolcano() {
   const volcano = levelData[currentLevelIndex].volcano;
   const volcanoX = toPixels(volcano.x);
+  const volcanoY = groundY - toPixels(volcano.y);
   const baseWidth = toPixels(4);
   const craterWidth = toPixels(2);
 
   ctx.fillStyle = "#5d4037";
   ctx.beginPath();
-  ctx.moveTo(volcanoX - baseWidth / 2 - cameraX, groundY - 8);
-  ctx.lineTo(volcanoX - craterWidth / 2 - cameraX, groundY - 170);
-  ctx.lineTo(volcanoX + craterWidth / 2 - cameraX, groundY - 170);
-  ctx.lineTo(volcanoX + baseWidth / 2 - cameraX, groundY - 8);
+  ctx.moveTo(volcanoX - baseWidth / 2, volcanoY + 12);
+  ctx.lineTo(volcanoX - craterWidth / 2, volcanoY - 150);
+  ctx.lineTo(volcanoX + craterWidth / 2, volcanoY - 150);
+  ctx.lineTo(volcanoX + baseWidth / 2, volcanoY + 12);
   ctx.closePath();
   ctx.fill();
 
   ctx.fillStyle = "#3e2723";
-  ctx.fillRect(volcanoX - craterWidth / 2 - cameraX, groundY - 182, craterWidth, 18);
+  ctx.fillRect(volcanoX - craterWidth / 2, volcanoY - 162, craterWidth, 18);
 
   if (volcanoState.erupting) {
     ctx.fillStyle = "#ff9800";
     ctx.beginPath();
-    ctx.arc(volcanoX - cameraX, groundY - 190, 22, 0, Math.PI * 2);
+    ctx.arc(volcanoX, volcanoY - 170, 22, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = "rgba(255, 235, 59, 0.8)";
     ctx.beginPath();
-    ctx.arc(volcanoX - cameraX, groundY - 190, 34, 0, Math.PI * 2);
+    ctx.arc(volcanoX, volcanoY - 170, 34, 0, Math.PI * 2);
     ctx.stroke();
   }
 }
 
-function drawVolcanoPlatforms(cameraX) {
+function drawVolcanoPlatforms() {
   state.volcanoPlatforms.forEach((platform) => {
     ctx.fillStyle = "rgba(120, 95, 80, 0.85)";
-    ctx.fillRect(platform.x - cameraX, platform.y, platform.w, platform.h);
+    ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
   });
 }
 
-function drawBuildables(cameraX) {
+function drawBuildables() {
   buildables.forEach((platform) => {
     ctx.fillStyle = "#a1887f";
-    ctx.fillRect(platform.x - cameraX, platform.y, platform.w, platform.h);
+    ctx.fillRect(platform.x, platform.y, platform.w, platform.h);
     ctx.fillStyle = "rgba(255,255,255,0.4)";
     for (let i = 0; i < platform.w; i += 20) {
-      ctx.fillRect(platform.x - cameraX + i + 4, platform.y + 4, 10, 2);
+      ctx.fillRect(platform.x + i + 4, platform.y + 4, 10, 2);
     }
   });
 }
 
-function drawCoins(cameraX) {
+function drawCoins() {
   coins.forEach((coin) => {
     if (coin.collected) {
       return;
     }
     ctx.save();
     const pulse = 1 + Math.sin(coin.sparkle) * 0.1;
-    ctx.translate(coin.x - cameraX, coin.y);
+    ctx.translate(coin.x, coin.y);
     ctx.scale(pulse, pulse);
     ctx.fillStyle = "#ffd54f";
     ctx.beginPath();
@@ -959,81 +1012,81 @@ function drawCoins(cameraX) {
   });
 }
 
-function drawPlayer(cameraX) {
+function drawPlayer() {
   ctx.fillStyle = "#1a237e";
-  ctx.fillRect(player.x - cameraX, player.y + 16, playerSize.w, playerSize.h - 16);
+  ctx.fillRect(player.x, player.y + 16, playerSize.w, playerSize.h - 16);
 
   ctx.fillStyle = "#00ff7f";
-  ctx.fillRect(player.x - cameraX + 4, player.y, playerSize.w - 8, 18);
+  ctx.fillRect(player.x + 4, player.y, playerSize.w - 8, 18);
 
   ctx.fillStyle = "#000000";
   ctx.beginPath();
-  ctx.arc(player.x - cameraX + 12, player.y + 8, 2, 0, Math.PI * 2);
-  ctx.arc(player.x - cameraX + 22, player.y + 8, 2, 0, Math.PI * 2);
+  ctx.arc(player.x + 12, player.y + 8, 2, 0, Math.PI * 2);
+  ctx.arc(player.x + 22, player.y + 8, 2, 0, Math.PI * 2);
   ctx.fill();
 
   ctx.fillStyle = "rgba(0,0,0,0.2)";
-  ctx.fillRect(player.x - cameraX + 6, player.y + 30, 22, 4);
+  ctx.fillRect(player.x + 6, player.y + 30, 22, 4);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "12px sans-serif";
-  ctx.fillText("P1", player.x - cameraX + 6, player.y - 6);
+  ctx.fillText("P1", player.x + 6, player.y - 6);
 }
 
-function drawEnemies(cameraX) {
+function drawEnemies() {
   state.enemies.forEach((enemy) => {
     if (!enemy.alive) {
       return;
     }
     ctx.fillStyle = "#263238";
-    ctx.fillRect(enemy.x - cameraX, enemy.y + 16, 36, 36);
+    ctx.fillRect(enemy.x, enemy.y + 16, 36, 36);
     ctx.fillStyle = "#ff7a00";
-    ctx.fillRect(enemy.x - cameraX + 4, enemy.y, 28, 16);
+    ctx.fillRect(enemy.x + 4, enemy.y, 28, 16);
     ctx.fillStyle = "#ffffff";
-    ctx.fillRect(enemy.x - cameraX + 12, enemy.y + 26, 8, 4);
+    ctx.fillRect(enemy.x + 12, enemy.y + 26, 8, 4);
     if (enemy.telegraph > 0) {
       ctx.strokeStyle = "#ffe082";
       ctx.beginPath();
-      ctx.arc(enemy.x - cameraX + 18, enemy.y + 20, 18, 0, Math.PI * 2);
+      ctx.arc(enemy.x + 18, enemy.y + 20, 18, 0, Math.PI * 2);
       ctx.stroke();
     }
   });
 }
 
-function drawBoss(cameraX) {
+function drawBoss() {
   if (!state.boss || !state.boss.alive) {
     return;
   }
   const boss = state.boss;
   ctx.fillStyle = "#4e342e";
-  ctx.fillRect(boss.x - cameraX, boss.y + 24, 110, 66);
+  ctx.fillRect(boss.x, boss.y + 24, 110, 66);
   ctx.fillStyle = "#8d6e63";
-  ctx.fillRect(boss.x - cameraX + 12, boss.y, 86, 32);
+  ctx.fillRect(boss.x + 12, boss.y, 86, 32);
   ctx.fillStyle = "#ffccbc";
-  ctx.fillRect(boss.x - cameraX + 70, boss.y + 8, 22, 12);
+  ctx.fillRect(boss.x + 70, boss.y + 8, 22, 12);
   ctx.fillStyle = "#ffffff";
   ctx.font = "12px sans-serif";
-  ctx.fillText("T-REX", boss.x - cameraX + 18, boss.y - 8);
+  ctx.fillText("T-REX", boss.x + 18, boss.y - 8);
   if (boss.invulnerable > 0) {
     ctx.strokeStyle = "rgba(255,255,255,0.8)";
-    ctx.strokeRect(boss.x - cameraX, boss.y, 110, 90);
+    ctx.strokeRect(boss.x, boss.y, 110, 90);
   }
 }
 
-function drawBullets(cameraX) {
+function drawBullets() {
   ctx.fillStyle = "#fdd835";
   bullets.forEach((bullet) => {
-    ctx.fillRect(bullet.x - cameraX, bullet.y, 12, 3);
+    ctx.fillRect(bullet.x, bullet.y, 12, 3);
   });
 
   ctx.fillStyle = "#ff5252";
   enemyBullets.forEach((bullet) => {
-    ctx.fillRect(bullet.x - cameraX, bullet.y, 8, 3);
+    ctx.fillRect(bullet.x, bullet.y, 8, 3);
   });
 
   ctx.fillStyle = "#80d8ff";
   shockwaves.forEach((wave) => {
-    ctx.fillRect(wave.x - cameraX, wave.y, 40, 4);
+    ctx.fillRect(wave.x, wave.y, 40, 4);
   });
 }
 
@@ -1070,20 +1123,23 @@ function gameLoop(timestamp) {
     updateHud();
   }
 
-  const cameraX = clamp(player.x - canvas.width / 3, 0, state.levelWidth - canvas.width);
+  const cameraY = clamp(player.y - canvas.height * 0.6, state.levelTop, 0);
 
-  drawBackground(cameraX);
-  drawTrees(cameraX);
-  drawVolcano(cameraX);
-  drawGround(cameraX);
-  drawPlatforms(cameraX);
-  drawVolcanoPlatforms(cameraX);
-  drawBuildables(cameraX);
-  drawCoins(cameraX);
-  drawEnemies(cameraX);
-  drawBoss(cameraX);
-  drawBullets(cameraX);
-  drawPlayer(cameraX);
+  drawBackground(cameraY);
+  ctx.save();
+  ctx.translate(0, -cameraY);
+  drawTrees();
+  drawVolcano();
+  drawGround();
+  drawPlatforms();
+  drawVolcanoPlatforms();
+  drawBuildables();
+  drawCoins();
+  drawEnemies();
+  drawBoss();
+  drawBullets();
+  drawPlayer();
+  ctx.restore();
 
   if (gameState === "gameover") {
     drawMessage("Game Over");
