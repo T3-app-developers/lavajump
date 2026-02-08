@@ -41,8 +41,8 @@ const player = {
   lastBuild: 0,
 };
 
-const doubleSpaceWindow = 320;
-let lastSpacePress = 0;
+const doubleJumpWindow = 320;
+let lastJumpPress = 0;
 
 const bullets = [];
 const enemyBullets = [];
@@ -1178,13 +1178,13 @@ function gameLoop(timestamp) {
 }
 
 window.addEventListener("keydown", (event) => {
-  if (event.code === "Space") {
+  if (!event.repeat && event.code === "ArrowUp") {
     const now = performance.now();
-    if (now - lastSpacePress < doubleSpaceWindow) {
+    if (now - lastJumpPress < doubleJumpWindow) {
       jumpTwoLevels();
-      lastSpacePress = 0;
+      lastJumpPress = 0;
     } else {
-      lastSpacePress = now;
+      lastJumpPress = now;
     }
   }
   keys.add(event.key);
