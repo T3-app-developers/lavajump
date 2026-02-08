@@ -41,6 +41,9 @@ const player = {
   lastBuild: 0,
 };
 
+const doubleJumpWindow = 320;
+let lastJumpPress = 0;
+
 const bullets = [];
 const enemyBullets = [];
 const coins = [];
@@ -312,12 +315,18 @@ function resetLevel(index) {
     vx: 0,
   };
   coins.length = 0;
-  level.coins.forEach((coin) => {
-    coins.push({
-      x: toPixels(coin.x),
-      y: groundY - toPixels(coin.y),
-      collected: false,
-      sparkle: Math.random() * Math.PI * 2,
+  level.platforms.forEach((platform) => {
+    const platformX = toPixels(platform.x);
+    const platformY = groundY - toPixels(platform.y);
+    const platformW = toPixels(platform.w);
+    const coinY = platformY - 18;
+    [0.32, 0.68].forEach((ratio) => {
+      coins.push({
+        x: platformX + platformW * ratio,
+        y: coinY,
+        collected: false,
+        sparkle: Math.random() * Math.PI * 2,
+      });
     });
   });
   buildables.length = 0;
@@ -337,6 +346,19 @@ function resetLevel(index) {
   volcanoState.lastEruption = totalTime;
   volcanoState.erupting = false;
   updateHud();
+}
+
+function jumpTwoLevels() {
+  if (gameState !== "playing") {
+    return;
+  }
+  currentLevelIndex += 2;
+  if (currentLevelIndex >= levelData.length) {
+    gameState = "complete";
+    return;
+  }
+  resetLevel(currentLevelIndex);
+  hud.level.textContent = `Level ${currentLevelIndex + 1}`;
 }
 
 function updateHud() {
@@ -932,10 +954,13 @@ function drawTrees() {
     ctx.fillStyle = "#355e3b";
     ctx.beginPath();
     if (index % 2 === 0) {
-      ctx.arc(tree.x + 8, tree.y - 90, 28, 0, Math.PI * 2);
+      ctx.arc(tree.x + 8, tree.y - 94, 34, 0, Math.PI * 2);
+      ctx.arc(tree.x - 8, tree.y - 92, 26, 0, Math.PI * 2);
+      ctx.arc(tree.x + 24, tree.y - 92, 26, 0, Math.PI * 2);
     } else {
-      ctx.arc(tree.x, tree.y - 90, 24, 0, Math.PI * 2);
-      ctx.arc(tree.x + 22, tree.y - 100, 24, 0, Math.PI * 2);
+      ctx.arc(tree.x + 4, tree.y - 92, 28, 0, Math.PI * 2);
+      ctx.arc(tree.x - 16, tree.y - 96, 24, 0, Math.PI * 2);
+      ctx.arc(tree.x + 26, tree.y - 100, 26, 0, Math.PI * 2);
     }
     ctx.fill();
   });
@@ -1153,6 +1178,15 @@ function gameLoop(timestamp) {
 }
 
 window.addEventListener("keydown", (event) => {
+  if (!event.repeat && event.code === "ArrowUp") {
+    const now = performance.now();
+    if (now - lastJumpPress < doubleJumpWindow) {
+      jumpTwoLevels();
+      lastJumpPress = 0;
+    } else {
+      lastJumpPress = now;
+    }
+  }
   keys.add(event.key);
 });
 
