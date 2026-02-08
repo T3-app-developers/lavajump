@@ -218,10 +218,10 @@ Important implementation detail:
 All measurements are defined in **blocks**. You stated blocks are “2 cm each.” For production, we treat this as a design unit (tile size) and map it to engine units for camera/physics.
 
 ### Level sizes and enemy counts
-- Level 1: **22 blocks** (length baseline), **2 attacking men**
-- Level 2: **30 blocks**, **3 attacking men**
-- Level 3: **40 blocks**, **4 attacking men**
-- Level 4: **50 blocks**, **5 attacking men**
+- Level 1: **60 blocks** (standardized length), **2 attacking men**
+- Level 2: **60 blocks**, **3 attacking men**
+- Level 3: **60 blocks**, **4 attacking men**
+- Level 4: **60 blocks**, **5 attacking men**
 - Level 5: **60 blocks**, **5 attacking men**
 - Every level includes:
   - Coins scattered
@@ -230,7 +230,7 @@ All measurements are defined in **blocks**. You stated blocks are “2 cm each.�
   - Trees for mining
 
 Design intent:
-- Each level is bigger than the previous.
+- Level length is standardized to avoid any stage feeling truncated.
 - Threat density increases through:
   - More enemy shooters
   - More complex platform over-lava sequences
@@ -311,7 +311,7 @@ This preserves your requirement while improving pacing and variety.
 ## 11) MDT integration notes (what the team will align on)
 When integrating these new mechanics, the MDT will make the following “pro pipeline” decisions to avoid rework:
 
-1) Define exactly how “22 blocks” maps to camera framing and movement speed so levels don’t feel cramped or empty.
+1) Define exactly how “60 blocks” maps to camera framing and movement speed so levels don’t feel cramped or empty.
 2) Decide whether enemies shoot straight lines only, or can aim (aiming increases complexity and unfairness risk).
 3) Decide the “mining” input and wall placement rule (predefined location recommended for MVP).
 4) Clarify the eruption hazard: keep it as a timing penalty mid-jump (no extra projectiles/knockback for MVP).
@@ -339,10 +339,10 @@ Slice must include:
 
 ### Milestone 2: MVP Alpha (4–6 weeks)
 Deliver all five levels with correct block lengths and enemy counts:
-- Level 1: 22 blocks, 2 enemies, boss, volcano
-- Level 2: 30 blocks, 3 enemies, boss, volcano
-- Level 3: 40 blocks, 4 enemies, boss, volcano
-- Level 4: 50 blocks, 5 enemies, boss, volcano
+- Level 1: 60 blocks, 2 enemies, boss, volcano
+- Level 2: 60 blocks, 3 enemies, boss, volcano
+- Level 3: 60 blocks, 4 enemies, boss, volcano
+- Level 4: 60 blocks, 5 enemies, boss, volcano
 - Level 5: 60 blocks, 5 enemies, boss, volcano
 Plus:
 - Coins across levels
